@@ -1,10 +1,11 @@
-# linux_learning
+# linux_learning (7 days)
 learning linux command line (BASH) 
 
 ## Soruce of materials
-Ryan's Tutorials: https://ryanstutorials.net/linuxtutorial/
+1.Ryan's Tutorials: https://ryanstutorials.net/linuxtutorial/
 Ryan's email:ryantutorial@todolistme.net
-
+2. Shell Scriting Tutorial for Beginners, youtube playlist provided by the channel ProgrammingKnowledge
+https://youtube.com/playlist?list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_ 
 # Introduction 
 ## Goal of learning: Not to become a Unix guru, just to enjoy more convenience in programming, to be able to appreciate the beauty of programming more, and ofcourse add one more skill under your belt
 
@@ -58,7 +59,7 @@ example line:ls -l /home/ryan
  This argument /etc tells ls not to list our current directory, but instead to list that directories' contents. 
  6. ls -l /etc  (run ls with both its option and argument)
  7. cd [location] if run without argument, it will take you back to the home directory. If with argument,it will change directory for us. 
- 8. 
+ 8. file [path]  to find out what type of file a particular file is
 
 ## Path
 Path is important in being proficient with Linux
@@ -68,6 +69,8 @@ The file system under linux is a hierarchical structure. At the very top of the 
 
 Absolute paths specify a location (file or directory) in relation to the root directory. You can identify them easily as they always begin with a forward slash ( / )
 Relative paths specify a location (file or directory) in relation to where we currently are in the system. They will not begin with a slash.
+
+whenever we specify a file or directory on the command line it is actually a path. Also because directories (as mentioned above) are actually just a special type of file, it would be more accurate to say that a path is a means to get to a particular location in the system and that location is a file.
 
 ## Tip
 ~ (tilde) - This is a shortcut for your home directory. eg, if your home directory is /home/ryan then you could refer to the directory Documents with the path /home/ryan/Documents or ~/Documents
@@ -86,4 +89,65 @@ Let's start by getting familiar with moving around. Use the commands cd and ls t
 /var/log - Stores log files for various system programs. (You may not have permission to look at everything in this directory. Don't let that stop you exploring though. A few error messages never hurt anyone.)
 /bin - The location of several commonly used programs (some of which we will learn about in the rest of this tutorial.
 /usr/bin - Another location for programs on the system.
+Try running the command file giving it a few different entries. Make sure you use a variety of absolute and relative paths when doing this.
+Now issue a command that will list the contents of your home directory including hidden files and directories.
 
+
+## Cool facts to me
+Ok, the first thing we need to appreciate with linux is that under the hood, everything is actually a file. A text file is a file, a directory is a file, your keyboard is a file (one that the system reads from only), your monitor is a file (one that the system writes to only) etc. 
+
+A file extension is normally a set of 2 - 4 characters after a full stop at the end of a file, which denotes what type of file it is. The following are common extensions:
+file.exe - an executable file, or program.
+file.txt - a plain text file.
+file.png, file.gif, file.jpg - an image.
+Under Linux the system actually ignores the extension and looks inside the file to determine what type of file it is.
+There is a command called file which we can use to find this out the type of file a particular file is. 
+fiel[path]
+
+whenever we specify a file or directory on the command line it is actually a path. Also because directories (as mentioned above) are actually just a special type of file, it would be more accurate to say that a path is a means to get to a particular location in the system and that location is a file.
+
+
+## Escape characters
+ a backslash ( \ ). What the backslash does is escape (or nullify) the special meaning of the next character.
+ In the previous section we learnt about something called Tab Completion. If you use that before encountering the space in the directory name then the terminal will automatically escape any spaces in the name for you.
+ 
+ ## Hidden files and directories
+If the file or directory's name begins with a . (full stop) then it is considered to be hidden
+To make a file or directory hidden all you need to do is create the file or directory with it's name beginning with a . or rename it to be as such. Likewise you may rename a hidden file to remove the . and it will become unhidden. The command ls which we have seen in the previous section will not list hidden files and directories by default. We may modify it by including the command line option -a so that it does show hidden files and directories. "ls -a PATH"
+
+
+file
+obtain information about what type of file a file or directory is.
+ls -a
+List the contents of a directory, including hidden files.
+Everything is a file under Linux
+Even directories.
+Linux is an extensionless system
+Files can have any extension they like or none at all.
+Linux is case sensitive
+Beware of silly typos.
+
+
+## Manual pages
+man <command to look up>
+eg. man ls
+The manual pages are a set of pages that explain every command available on your system including what they do, the specifics of how you run them and what command line arguments they accept.The man pages are your friend. Instead of trying to remember everything, instead remember you can easily look stuff up in the man pages.
+To exit the man pages press 'q' for quit.
+
+
+man <command>
+Look up the manual page for a particular command.
+man -k <search term>
+Do a keyword search for all manual pages containing the given search term.
+/<term>
+Within a manual page, perform a search for 'term'
+n
+After performing a search within a manual page, select the next found item
+
+
+** ## Long hand Vs short hand**
+ 
+ long hand command line options begin with two dashes ( -- ) and short hand options begin with a single dash ( - ).
+ The long hand is really just a more human readable form. You may use either, they both do the same thing. One advantage of using long hand is that it can be easier for you to remember what your commands are doing. One advantage of using shorthand is that you can chain multiple together easier. When we use a single dash we may invoke several options by placing all the letters representing those options together after the dash. 
+ 
+ 
